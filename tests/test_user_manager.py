@@ -1,6 +1,6 @@
 import pytest
 
-from app import UserManager
+from app.user_manager import UserManager
 
 
 def test_add_user():
