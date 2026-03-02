@@ -1,27 +1,18 @@
-"""Simple in-memory user manager used by tests."""
-
+# app/user_manager.py
 
 class UserManager:
-    """Manage users in memory keyed by unique username."""
-
-    def _init_(self):
-        self._users = {}
+    def __init__(self):
+        self._users = {}  # initialize the user store
 
     def add_user(self, username, user_data=None):
         if username in self._users:
-            raise ValueError("User already exists")
+            raise ValueError(f"User '{username}' already exists")
         self._users[username] = user_data
-
-    def get_user(self, username):
-        return self._users.get(username)
 
     def remove_user(self, username):
         if username not in self._users:
-            raise ValueError("User not found")
-        return self._users.pop(username)
-
-    def list_users(self):
-        return dict(self._users)
+            raise ValueError(f"User '{username}' does not exist")
+        del self._users[username]
 
     def count_users(self):
         return len(self._users)
