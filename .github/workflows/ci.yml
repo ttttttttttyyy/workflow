@@ -63,6 +63,10 @@ jobs:
 
       - name: Run pytest with coverage
         run: python -m pytest -v --cov=src tests/
+
+  # -----------------------------
+  # Job 3: Build
+  # -----------------------------
   build:
     name: Build Package
     runs-on: ubuntu-latest
@@ -86,5 +90,5 @@ jobs:
       - name: Upload build artifact
         uses: actions/upload-artifact@v4
         with:
-        name: python-package
-        path: dist/
+          name: python-package
+          path: dist/
