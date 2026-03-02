@@ -28,6 +28,9 @@ jobs:
           pip install -r requirements.txt
           pip install flake8 pytest pytest-cov
 
+      - name: Vérifier le contenu du repo
+        run: ls -R
+
       - name: Linter avec flake8
         run: |
           python -m flake8 app --count --select=E9,F63,F7,F82,F841 --show-source --statistics
@@ -36,3 +39,4 @@ jobs:
 
       - name: Lancer les tests avec coverage
         run: python -m pytest -v --cov=app
+        
